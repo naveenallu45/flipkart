@@ -14,7 +14,7 @@ router.post("/auth", async (req, res) => {
     
       user = new User({ mobile, password });
       await user.save();
-      return res.status(201).json({ message: "User created and logged in", user });
+      return res.status(201).json({ message: "User created and loggedd in", user });
     }
 
   
