@@ -4,7 +4,14 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import connection from "./db.js";
-import authRoute from "./auth.js";
+import logroute from "./login.js";
+import upload from "./uploadproduct.js";
+
+
+
+
+
+
 
 dotenv.config();
 
@@ -17,9 +24,18 @@ connection();
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
 
-// Routes
-app.use("/api", authRoute);
+
+
+app.use('/api', logroute);
+app.use('/api', upload);
+
+
+
+
+
+
 
 // Root route
 app.get("/", (req, res) => {
